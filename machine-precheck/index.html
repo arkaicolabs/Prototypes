@@ -6,13 +6,11 @@
   <meta name="theme-color" content="#050505">
   <title>Machine Pre-Check List</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="app.css?v=3">
 </head>
 <body>
   <section id="splash" class="splash" aria-label="Machine Pre-Check List intro">
-    <video id="introVideo" class="intro-video" autoplay muted playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" aria-label="Machine Pre-Check List intro">
-      <source src="machine-pre-check-list-intro-login-v8.mp4" type="video/mp4">
-    </video>
+    <canvas id="introCanvas" class="intro-canvas" aria-label="Machine Pre-Check List intro"></canvas>
   </section>
 
   <main id="app" class="app hidden">
@@ -38,6 +36,6 @@
       <button class="secondary" type="button">SCAN MACHINE QR</button>
     </section>
   </main>
-  <script src="app.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
