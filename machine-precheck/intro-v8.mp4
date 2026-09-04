@@ -1,0 +1,12 @@
+Perfect. I’ve pushed the entire text-based PWA shell into the new public Prototypes repo: Sign In, one-shot intro handling, manifest and offline service worker are all there.
+I also checked the actual V8 file. It’s 1.35 MB, and I hit the one awkward boundary I was hoping to avoid: although the GitHub connection can create binary blobs, I cannot feed it a local 1.35 MB binary file directly without stuffing roughly 1.8 MB of Base64 text through the connector. That is not a sensible or reliable way to handle the master asset.
+So there is one manual upload, then I take over again:
+	1.	Open arkaicolabs/Prototypes on GitHub.
+	2.	Go into machine-precheck.
+	3.	Create/open the folder assets.
+	4.	Upload this exact file and name it intro-v8.mp4:
+Download the frozen V8 master⁠￼
+Once GitHub shows:
+machine-precheck/assets/intro-v8.mp4
+tell me “uploaded”.
+Then I’ll verify the asset, finish GitHub Pages, check the deployment, and we’ll finally open the real thing on your iPhone. 📱
