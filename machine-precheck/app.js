@@ -3,7 +3,7 @@ const canvas=document.getElementById('introCanvas');
 const app=document.getElementById('app');
 const ctx=canvas?.getContext('2d',{alpha:false});
 const SPRITE_URL='v8-sprite-60f.webp';
-const FRAME_W=480,FRAME_H=320,COLS=10,FRAME_COUNT=60,DURATION=1000;
+const FRAME_W=480,FRAME_H=320,COLS=10,FRAME_COUNT=60,FLASH_DURATION=1000,SPLASH_DURATION=1500;
 let revealed=false,startTime=null,lastFrame=-1,fallbackTimer;
 
 function revealApp(){
@@ -23,8 +23,7 @@ function drawFrame(img,n){
   if(!ctx||!canvas)return;
   const sx=(n%COLS)*FRAME_W,sy=Math.floor(n/COLS)*FRAME_H;
   const cw=canvas.width,ch=canvas.height;
-  const contain=window.innerWidth>=700;
-  const scale=contain?Math.min(cw/FRAME_W,ch/FRAME_H):Math.max(cw/FRAME_W,ch/FRAME_H);
+  const scale=Math.min(cw/FRAME_W,ch/FRAME_H);
   const dw=FRAME_W*scale,dh=FRAME_H*scale,dx=(cw-dw)/2,dy=(ch-dh)/2;
   ctx.fillStyle='#000';ctx.fillRect(0,0,cw,ch);
   ctx.drawImage(img,sx,sy,FRAME_W,FRAME_H,dx,dy,dw,dh);
@@ -33,9 +32,10 @@ function run(img,now){
   if(revealed)return;
   if(startTime===null)startTime=now;
   const elapsed=now-startTime;
-  const frame=Math.min(FRAME_COUNT-1,Math.floor((elapsed/DURATION)*FRAME_COUNT));
+  const flashElapsed=Math.min(elapsed,FLASH_DURATION-0.001);
+  const frame=Math.min(FRAME_COUNT-1,Math.floor((flashElapsed/FLASH_DURATION)*FRAME_COUNT));
   if(frame!==lastFrame){lastFrame=frame;drawFrame(img,frame);}
-  if(elapsed<DURATION)requestAnimationFrame(t=>run(img,t));
+  if(elapsed<SPLASH_DURATION)requestAnimationFrame(t=>run(img,t));
   else revealApp();
 }
 if(canvas&&ctx){
