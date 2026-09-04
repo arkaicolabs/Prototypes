@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <title>Machine Pre-Check List</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <section id="splash" class="splash" aria-label="Machine Pre-Check List intro">
+    <video id="introVideo" class="intro-video" autoplay muted playsinline preload="auto" aria-label="Machine Pre-Check List intro">
+      <source src="assets/intro-v8.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <main id="app" class="app hidden">
+    <section id="signin" class="panel signin-panel">
+      <div class="mini-mark" aria-hidden="true"><i class="green"></i><i class="amber"></i></div>
+      <p class="eyebrow">MACHINE PRE-CHECK LIST</p>
+      <h1>Sign in to start today’s checks</h1>
+      <form id="signinForm">
+        <label>Email or mobile<input autocomplete="username" inputmode="email" required></label>
+        <label>Password<input type="password" autocomplete="current-password" required></label>
+        <button type="submit">SIGN IN</button>
+      </form>
+      <div class="divider"><span>or</span></div>
+      <button id="scanBtn" class="secondary" type="button">SCAN A MACHINE QR CODE</button>
+      <p class="prototype-note">Prototype only. No live authentication or machine data.</p>
+    </section>
+
+    <section id="home" class="panel home-panel hidden">
+      <p class="eyebrow">MACHINE PRE-CHECK LIST</p>
+      <h1>Good morning</h1>
+      <p>Ready for today’s machine checks.</p>
+      <button type="button">START A PRE-CHECK</button>
+      <button class="secondary" type="button">SCAN MACHINE QR</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
