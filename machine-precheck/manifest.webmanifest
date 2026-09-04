@@ -1,0 +1,10 @@
+{
+  "name":"Machine Pre-Check List",
+  "short_name":"Pre-Check",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#050505",
+  "theme_color":"#050505",
+  "description":"Non-production Machine Pre-Check List PWA prototype."
+}
