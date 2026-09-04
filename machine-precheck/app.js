@@ -6,7 +6,10 @@ const ctx=canvas?.getContext('2d',{alpha:false});
 const SPRITE_URL='v8-sprite-60f.webp';
 const FRAME_W=480,FRAME_H=320,COLS=10,FRAME_COUNT=60;
 const CROP_X=50,CROP_Y=47,CROP_W=380,CROP_H=186;
-const FLASH_DURATION=1000,LOADER_DURATION=600,FADE_DURATION=500,TOTAL=FLASH_DURATION+LOADER_DURATION+FADE_DURATION;
+const SOURCE_FPS=60,PLAY_FRAMES=32;
+const FLASH_DURATION=(PLAY_FRAMES/SOURCE_FPS)*1000;
+const GEAR_FADE=267,GEAR_HOLD=700,LOGIN_FADE=500;
+const TOTAL=FLASH_DURATION+GEAR_FADE+GEAR_HOLD+LOGIN_FADE;
 let startTime=null,lastFrame=-1,finished=false,fallbackTimer;
 
 function sizeCanvas(){
@@ -38,13 +41,17 @@ function run(img,now){
   if(startTime===null)startTime=now;
   const elapsed=now-startTime;
   if(elapsed<FLASH_DURATION){
-    const frame=Math.min(FRAME_COUNT-1,Math.floor((elapsed/FLASH_DURATION)*FRAME_COUNT));
+    const frame=Math.min(PLAY_FRAMES-1,Math.floor((elapsed/1000)*SOURCE_FPS));
     if(frame!==lastFrame){lastFrame=frame;drawFrame(img,frame);}
-  }else if(elapsed<FLASH_DURATION+LOADER_DURATION){
-    if(!canvas.classList.contains('hidden')){
-      canvas.classList.add('hidden');
+  }else if(elapsed<FLASH_DURATION+GEAR_FADE){
+    if(loader.classList.contains('hidden')){
       loader.classList.remove('hidden');
+      requestAnimationFrame(()=>loader.classList.add('fade-in'));
     }
+    canvas.classList.add('fade-out');
+  }else if(elapsed<FLASH_DURATION+GEAR_FADE+GEAR_HOLD){
+    canvas.classList.add('hidden');
+    loader.classList.add('fade-in');
   }else if(elapsed<TOTAL){
     beginCrossfade();
   }else{
@@ -64,4 +71,4 @@ if(canvas&&ctx){
 
 document.getElementById('signinForm')?.addEventListener('submit',e=>{e.preventDefault();document.getElementById('signin')?.classList.add('hidden');document.getElementById('home')?.classList.remove('hidden');});
 document.getElementById('scanBtn')?.addEventListener('click',()=>alert('QR scanning is intentionally not connected in this prototype.'));
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=9').catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=13').catch(()=>{}));}
