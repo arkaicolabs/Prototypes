@@ -6,16 +6,19 @@
   <meta name="theme-color" content="#050505">
   <title>Machine Pre-Check List</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="app.css?v=7">
+  <link rel="stylesheet" href="app.css?v=8">
 </head>
 <body>
   <section id="splash" class="splash" aria-label="Machine Pre-Check List intro">
-    <canvas id="introCanvas" class="intro-canvas" aria-label="Machine Pre-Check List intro"></canvas>
+    <div class="splash-brand">
+      <h1>MACHINE PRE-CHECK LIST</h1>
+      <canvas id="introCanvas" class="intro-canvas" aria-label="Beacon intro"></canvas>
+      <div id="loader" class="loader hidden" aria-label="Loading"></div>
+    </div>
   </section>
 
   <main id="app" class="app hidden">
     <section id="signin" class="panel signin-panel">
-      <div class="mini-mark" aria-hidden="true"><i class="green"></i><i class="amber"></i></div>
       <p class="eyebrow">MACHINE PRE-CHECK LIST</p>
       <h1>Sign in to start today’s checks</h1>
       <form id="signinForm">
@@ -36,6 +39,6 @@
       <button class="secondary" type="button">SCAN MACHINE QR</button>
     </section>
   </main>
-  <script src="app.js?v=7"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
