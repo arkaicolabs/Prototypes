@@ -10,3 +10,10 @@
 .intro-canvas.visible{opacity:1}
 .loader.gears{opacity:0;transition:opacity .3s ease}
 .loader.gears.visible{opacity:1}
+
+#splashTitle{display:grid;justify-items:center;gap:0;margin:0!important;font-family:Impact,"Arial Narrow Bold",sans-serif;font-size:clamp(38px,11vw,66px)!important;line-height:.94!important;letter-spacing:.01em!important;font-weight:900!important;text-align:center;opacity:0;transition:opacity .15s ease}
+#splashTitle span{display:block;white-space:nowrap}
+#splashTitle.visible{opacity:1}
+#splashTitle.fade-out{opacity:0;transition-duration:.12s}
+.intro-canvas{width:min(72vw,320px)!important;opacity:0;transition:opacity .08s linear}
+.intro-canvas.visible{opacity:1}
