@@ -34,10 +34,9 @@ function run(img,now){
     // title fade-in then hold
   }else if(e<loginStart){
     if(!title.classList.contains('hidden')){
-      title.classList.add('fade-out');
-      title.classList.add('hidden');
+      title.classList.add('cut-away');
       canvas.classList.remove('hidden');
-      void canvas.offsetWidth;canvas.classList.add('visible');
+      canvas.classList.add('cut-in','visible');
     }
     const fe=e-flashStart;
     const frame=Math.min(FLASH_FRAMES-1,Math.floor((fe/1000)*SOURCE_FPS));
@@ -50,10 +49,10 @@ function run(img,now){
 if(canvas&&ctx){
   sizeCanvas();const img=new Image();img.decoding='async';
   img.onload=()=>requestAnimationFrame(t=>run(img,t));
-  img.onerror=finish;img.src=SPRITE_URL+'?v=15';
+  img.onerror=finish;img.src=SPRITE_URL+'?v=16';
   fallback=setTimeout(finish,TOTAL+1200);
 }else finish();
 
 document.getElementById('signinForm')?.addEventListener('submit',e=>{e.preventDefault();document.getElementById('signin')?.classList.add('hidden');document.getElementById('home')?.classList.remove('hidden');});
 document.getElementById('scanBtn')?.addEventListener('click',()=>alert('QR scanning is intentionally not connected in this prototype.'));
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=15').catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=16').catch(()=>{}));}
