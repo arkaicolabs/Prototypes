@@ -3,7 +3,7 @@ const canvas=document.getElementById('introCanvas');
 const app=document.getElementById('app');
 const ctx=canvas?.getContext('2d',{alpha:false});
 const SPRITE_URL='v8-sprite-60f.webp';
-const FRAME_W=480,FRAME_H=320,COLS=10,FRAME_COUNT=60,FLASH_DURATION=1000,SPLASH_DURATION=1500;
+const FRAME_W=480,FRAME_H=320,COLS=10,FRAME_COUNT=60,FLASH_DURATION=1000,SPLASH_DURATION=2000;
 let revealed=false,startTime=null,lastFrame=-1,fallbackTimer;
 
 function revealApp(){
