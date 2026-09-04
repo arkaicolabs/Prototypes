@@ -17,3 +17,7 @@
 #splashTitle.fade-out{opacity:0;transition-duration:.12s}
 .intro-canvas{width:min(72vw,320px)!important;opacity:0;transition:opacity .08s linear}
 .intro-canvas.visible{opacity:1}
+
+/* v16: title cuts directly to beacon sequence */
+#splashTitle.cut-away{display:none!important}
+.intro-canvas.cut-in{opacity:1!important;transition:none!important}
