@@ -21,7 +21,7 @@ function draw(img,n){
   ctx.drawImage(img,bx+CROP_X,by+CROP_Y,CROP_W,CROP_H,0,0,canvas.width,canvas.height);
 }
 function finish(){
-  if(done)return;done=true;clearTimeout(fallback);splash?.remove();app?.classList.add('visible');
+  if(done)return;done=true;clearTimeout(fallback);splash?.remove();app?.classList.remove('hidden');app?.classList.add('visible');
 }
 function crossfade(){
   if(app.classList.contains('visible'))return;
@@ -55,4 +55,4 @@ if(canvas&&ctx){
 
 document.getElementById('signinForm')?.addEventListener('submit',e=>{e.preventDefault();document.getElementById('signin')?.classList.add('hidden');document.getElementById('home')?.classList.remove('hidden');});
 document.getElementById('scanBtn')?.addEventListener('click',()=>alert('QR scanning is intentionally not connected in this prototype.'));
-if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=16').catch(()=>{}));}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js?v=17').catch(()=>{}));}
