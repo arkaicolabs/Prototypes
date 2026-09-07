@@ -1,39 +1,7 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#050505">
-  <title>Machine Pre-Check List</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="app.css?v=16">
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#050505"><meta name="description" content="Machine Pre-Check — interactive operator and hirer prototype."><title>Machine Pre-Check</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="app.css?v=16"><link rel="stylesheet" href="demo.css?v=18"></head>
 <body>
-  <section id="splash" class="splash" aria-label="Machine Pre-Check List intro">
-    <div class="splash-brand">
-      <h1 id="splashTitle"><span>MACHINE</span><span>PRE-CHECK LIST</span></h1>
-      <canvas id="introCanvas" class="intro-canvas hidden" aria-label="Beacon intro"></canvas>
-      </div>
-  </section>
-
-  <main id="app" class="app hidden">
-    <section id="signin" class="panel signin-panel">
-      <h1>MACHINE PRE-CHECK LIST</h1>
-      <form id="signinForm">
-        <label>Email/mobile<input autocomplete="username" inputmode="email" required></label>
-        <label>Password<input type="password" autocomplete="current-password" required></label>
-        <button type="submit">SIGN IN</button>
-      </form>
-    </section>
-
-    <section id="home" class="panel home-panel hidden">
-      <p class="eyebrow">MACHINE PRE-CHECK LIST</p>
-      <h1>Good morning</h1>
-      <p>Ready for today’s machine checks.</p>
-      <button type="button">START A PRE-CHECK</button>
-      <button class="secondary" type="button">SCAN MACHINE QR</button>
-    </section>
-  </main>
-  <script src="app.js?v=17"></script>
-</body>
-</html>
+<section id="splash" class="splash" aria-label="Machine Pre-Check intro"><div class="splash-brand"><h1 id="splashTitle"><span>MACHINE</span><span>PRE-CHECK</span></h1><canvas id="introCanvas" class="intro-canvas hidden" aria-label="Beacon intro"></canvas></div></section>
+<main id="app" class="app hidden"><div id="demo"></div></main>
+<script src="app.js?v=18"></script><script src="demo.js?v=18"></script>
+</body></html>
